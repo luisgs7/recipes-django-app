@@ -1,0 +1,1 @@
+# Recipes Django App
