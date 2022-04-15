@@ -11,6 +11,21 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dotenv
+
+dotenv.load_dotenv(dotenv.find_dotenv())
+
+app_key = os.getenv("APP_KEY")
+app_debug: bool = os.getenv("APP_DEBUG")
+app_host = list(os.getenv("APP_HOSTS"))
+
+user_db = os.getenv("USER_DB")
+password_db = os.getenv("PASSWORD_DB")
+host_db = os.getenv("HOST_DB")
+name_db = os.getenv("NAME_DB")
+port_db = os.getenv("PORT_DB")
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +35,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-xklu3qe)cf=k@vcthuvf@6302@a*-q9w*!1#jb%r(a&+&1(%1h"
+SECRET_KEY = f"{app_key}"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = app_debug
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = app_host
 
 
 # Application definition
@@ -37,6 +52,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # My Apps
+    "recipes",
 ]
 
 MIDDLEWARE = [
