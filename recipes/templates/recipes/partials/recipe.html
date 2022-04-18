@@ -1,10 +1,14 @@
 <div class="recipe recipe-list-item">
     <div class="recipe-cover">
-        <img src="https://via.placeholder.com/1280x720.png/269fe6" alt="">
+        <a href="{% url 'recipes:detail' 1 %}">
+            <img src="https://via.placeholder.com/1280x720.png/269fe6" alt="">
+        </a>
     </div>
 
     <div class="recipe-title-container">
-        <h2 class="recipe-title">Title</h2>
+        <a href="{% url 'recipes:detail' 1 %}">
+            <h2 class="recipe-title">Title</h2>
+        </a>
     </div>
 
     <div class="recipe-author">
@@ -52,10 +56,9 @@
 
     {% if is_detail_page is not True %}
     <footer class="recipe-footer">
-        <a class="recipe-read-more button button-dark button-full-width" href="/recipes/3/">
+        <a class="recipe-read-more button button-dark button-full-width" href="{% url 'recipes:detail' 1 %}">
             <i class="fas fa-eye"></i>
             <span>{{ is_detail_page }} ver mais...</span>
-
         </a>
     </footer>
     {% endif %}
