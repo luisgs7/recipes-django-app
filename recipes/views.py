@@ -16,6 +16,6 @@ def recipes(request, id):
         request,
         "recipes/pages/recipe-view.html",
         context={
-            "name": "pedro",
+            "is_detail_page": True,
         },
     )
