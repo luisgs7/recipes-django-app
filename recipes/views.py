@@ -1,5 +1,5 @@
 # from django.http import Http404
-from django.shortcuts import render, get_list_or_404
+from django.shortcuts import get_object_or_404, render, get_list_or_404
 
 # from utils.recipes.fake import make_recipe
 from .models import Recipe
@@ -41,14 +41,15 @@ def category(request, category_id):
 
 
 def recipe(request, id):
-    recipe = (
-        Recipe.objects.filter(
-            pk=id,
-            is_published=True,
-        )
-        .order_by("-id")
-        .first()
-    )
+    # recipe = (
+    #     Recipe.objects.filter(
+    #         pk=id,
+    #         is_published=True,
+    #     )
+    #     .order_by("-id")
+    #     .first()
+    # )
+    recipe = get_object_or_404(Recipe, pk=id, is_published=True)
 
     return render(
         request,
