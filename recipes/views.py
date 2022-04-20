@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render
 from utils.recipes.fake import make_recipe
 from .models import Recipe
@@ -19,11 +20,15 @@ def category(request, category_id):
         is_published=True,
     ).order_by("-id")
 
+    if not recipe:
+        raise Http404("Not Found")
+
     return render(
         request,
         "recipes/pages/category.html",
         context={
             "recipes": recipe,
+            "title": f"{recipe.first().category.name} | Category",
         },
     )
 
