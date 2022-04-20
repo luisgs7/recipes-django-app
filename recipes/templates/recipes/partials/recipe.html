@@ -14,6 +14,7 @@
     </div>
 
     <div class="recipe-author">
+        {% if recipe.author is not None %}
         <span class="recipe-author-item">
             <i class="fas fa-user"></i>
             {% if recipe.author.first_name %}
@@ -22,6 +23,13 @@
                 {{ recipe.author.username }}
             {% endif %}
         </span>
+        {% else %}
+        <span class="recipe-author-item">
+            <i class="fas fa-user"></i>
+            Fantasminha
+        </span>
+
+        {% endif %}
 
         <span class="recipe-author-item">
             <i class="fas fa-calendar-alt"></i>
