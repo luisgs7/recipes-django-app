@@ -28,3 +28,8 @@ consulta = Category.objects.get(id=2)
 consulta.delete()
 
 categories = Category.objects.filter(id=3)
+
+# Criar usuários pelo django shell
+from django.contrib.auth.models import User
+
+User.objects.create_user(first_name="Pedro", last_name="José", username="pedrojose2", email="pedro@gmail.com", password="123456")
