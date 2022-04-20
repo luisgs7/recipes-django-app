@@ -78,26 +78,12 @@
 
     {% if is_detail_page is True %}
     <div class="preparation-steps">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni fugiat commodi ullam quas modi.
-        Ea cumque labore veniam, sequi corrupti quas beatae fuga alias quae, vero dicta accusamus
-        aliquam in!
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni fugiat commodi ullam quas modi.
-        Ea cumque labore veniam, sequi corrupti quas beatae fuga alias quae, vero dicta accusamus
-        aliquam in!
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni fugiat commodi ullam quas modi.
-        Ea cumque labore veniam, sequi corrupti quas beatae fuga alias quae, vero dicta accusamus
-        aliquam in!
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni fugiat commodi ullam quas modi.
-        Ea cumque labore veniam, sequi corrupti quas beatae fuga alias quae, vero dicta accusamus
-        aliquam in!
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni fugiat commodi ullam quas modi. Ea cumque labore
-        veniam, sequi corrupti quas beatae fuga alias quae, vero dicta accusamus aliquam in! Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Magni fugiat commodi ullam quas modi. Ea cumque labore veniam, sequi corrupti quas
-        beatae fuga alias quae, vero dicta accusamus aliquam in! Lorem, ipsum dolor sit amet consectetur adipisicing
-        elit. Magni fugiat commodi ullam quas modi. Ea cumque labore veniam, sequi corrupti quas beatae fuga alias quae,
-        vero dicta accusamus aliquam in! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni fugiat commodi
-        ullam quas modi. Ea cumque labore veniam, sequi corrupti quas beatae fuga alias quae, vero dicta accusamus
-        aliquam in!
+    
+        {% if recipe.preparation_steps_is_html is True %}
+            {{ recipe.preparation_steps|safe }}
+        {% else %}
+            {{ recipe.preparation_steps|linebreaksbr }}
+        {% endif %}
     </div>
     {% endif %}
 
