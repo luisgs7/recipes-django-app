@@ -4,9 +4,11 @@ attrs==21.4.0
 black==22.3.0
 cfgv==3.3.1
 click==8.1.2
+colorama==0.4.4
 dill==0.3.4
 distlib==0.3.4
 Django==4.0.4
+docopt==0.6.2
 Faker==13.3.4
 filelock==3.6.0
 flake8==4.0.1
@@ -30,6 +32,7 @@ pylint==2.13.5
 pyparsing==3.0.8
 pytest==7.1.1
 pytest-django==4.5.2
+pytest-watch==4.2.0
 python-dateutil==2.8.2
 python-dotenv==0.20.0
 PyYAML==6.0
@@ -38,4 +41,5 @@ sqlparse==0.4.2
 toml==0.10.2
 tomli==2.0.1
 virtualenv==20.14.1
+watchdog==2.1.7
 wrapt==1.14.0
