@@ -1,10 +1,13 @@
 from django.urls import reverse, resolve
 
 from recipes import views
-from .test_recipe_base import RecipeTestBase
+from .test_recipe_base import RecipeTestBase, Recipe
 
 
 class RecipeViewTest(RecipeTestBase):
+    def tearDown(self) -> None:
+        return super().tearDown()
+
     def test_recipe_home_view_function_is_correct(self):
         view = resolve(reverse("recipes:home"))
         self.assertIs(view.func, views.home)
@@ -28,6 +31,7 @@ class RecipeViewTest(RecipeTestBase):
         self.assertIs(view.func, views.category)
 
     def test_recipe_home_template_loads_recipes(self):
+        self.make_recipe()
         response = self.client.get(reverse("recipes:home"))
         content = response.content.decode("utf-8")
         response_context_recipes = response.context["recipes"]
