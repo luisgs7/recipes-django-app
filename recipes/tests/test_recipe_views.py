@@ -1,4 +1,5 @@
 from django.urls import reverse, resolve
+from unittest import skip
 
 from recipes import views
 from .test_recipe_base import RecipeTestBase
@@ -17,11 +18,14 @@ class RecipeViewTest(RecipeTestBase):
         response = self.client.get(reverse("recipes:home"))
         self.assertTemplateUsed(response, "recipes/pages/home.html")
 
-    # def test_recipe_home_template_shows_no_recipes_found_if_no_recipes(self):
-    #     response = self.client.get(reverse("recipes:home"))
-    #     self.assertIn(
-    #         "<h1>No recipes found here!</h1>", response.content.decode("utf-8")
-    #     )
+    @skip("Mensagem de porque o teste foi pulado")
+    def test_recipe_home_template_shows_no_recipes_found_if_no_recipes(self):
+        response = self.client.get(reverse("recipes:home"))
+        self.assertIn(
+            "<h1>No recipes found here!</h1>", response.content.decode("utf-8")
+        )
+
+        # self.fail("Corrigir o teste...")
 
     def test_recipe_category_view_function_is_correct(self):
         view = resolve(reverse("recipes:category", kwargs={"category_id": 1}))
