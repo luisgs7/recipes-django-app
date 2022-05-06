@@ -18,7 +18,7 @@ dotenv.load_dotenv(dotenv.find_dotenv())
 
 app_key = os.getenv("APP_KEY")
 app_debug: bool = os.getenv("APP_DEBUG")
-app_host = list(os.getenv("APP_HOSTS"))
+app_host = list(os.getenv("ALLOWED_HOSTS"))
 
 user_db = os.getenv("USER_DB")
 password_db = os.getenv("PASSWORD_DB")
